@@ -5,6 +5,7 @@
 tcpclient
 tcpserver
 gg.txt
+http
 
 # Object files
 *.o
