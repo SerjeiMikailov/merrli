@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+.vscode
+tcpclient
+tcpserver
+gg.txt
+
 # Object files
 *.o
 *.ko
