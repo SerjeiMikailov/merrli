@@ -32,7 +32,8 @@ int main()
       std::cout << "Main v1.1" << std::endl;
     } 
     else if(command == "exit")
-    {
+    { 
+      system("pkill l");
       return 0;
     } 
     else if(command == "run")
