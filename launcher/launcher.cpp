@@ -10,12 +10,12 @@ void run()
 
 int main()
 {
-  std::cout << "--------------------" << std::endl;
-  std::cout << "|                  |" << std::endl;
-  std::cout << "|  Merrli Console  |" << std::endl;
-  std::cout << "|    Main v1.1     |" << std::endl;
-  std::cout << "|                  |" << std::endl;
-  std::cout << "--------------------" << std::endl;
+  std::cout << "---------------------" << std::endl;
+  std::cout << "|                   |" << std::endl;
+  std::cout << "|  Merrli Terminal  |" << std::endl;
+  std::cout << "|     Main v1.1     |" << std::endl;
+  std::cout << "|                   |" << std::endl;
+  std::cout << "---------------------" << std::endl;
 
   auto future = std::async(std::launch::async, run);
 
