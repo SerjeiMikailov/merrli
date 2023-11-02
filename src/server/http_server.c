@@ -25,7 +25,8 @@ int sendall(int socket, const char *buffer, int length) {
     return (n == -1) ? -1 : 0;
 }
 
-int main(void) {
+int main(void) 
+{ 
     FILE *html_data;
     html_data = fopen("../page/index.html", "r");
     if (html_data == NULL) {
