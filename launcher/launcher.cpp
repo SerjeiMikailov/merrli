@@ -57,7 +57,12 @@ int main()
 
       std::cout << "'version'" << std::endl;
       std::cout << "'exit'" << std::endl;
+      std::cout << "'debug'" << std::endl;
       std::cout << "'run'" << std::endl;
+    }
+    else if(command == "debug")
+    {
+      server_debug(port);   
     }
     else 
     {
