@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <future>
-#include <cstdlib>
+#include "launcher.hpp"
 
 void run()
 {
@@ -19,10 +16,24 @@ int main()
 
   auto future = std::async(std::launch::async, run);
 
+  std::string port;
+
+  std::cout << " " << std::endl;
+  std::cout << "Send the port that your server is running:" << std::endl;
+  std::cout << "-> ";
+  std::cin >> port;
+ 
+  if(port != "*&^*")
+  {
+    std::cout << " " << std::endl;
+    std::cout << "Your port is: " << port << std::endl;
+    std::cout << "If you need, just say 'help'..." << std::endl;
+  }
+
   while(future.wait_for(std::chrono::seconds(0)) != std::future_status::ready)
   {
-    std::string command;
-    
+    std::string command; 
+
     std::cout << " " << std::endl;
     std::cout << "-> ";
     std::cin >> command;
@@ -38,7 +49,15 @@ int main()
     } 
     else if(command == "run")
     {
-      std::cout << "Running here: http://localhost:8001" << std::endl;   
+      std::cout << "Running here: http://localhost:" << port << std::endl;   
+    }
+    else if(command == "help")
+    {
+      std::cout << "Avaible commands: " << std::endl;
+
+      std::cout << "'version'" << std::endl;
+      std::cout << "'exit'" << std::endl;
+      std::cout << "'run'" << std::endl;
     }
     else 
     {
