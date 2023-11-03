@@ -25,10 +25,10 @@ int sendall(int socket, const char *buffer, int length) {
     return (n == -1) ? -1 : 0;
 }
 
-int main(void) 
-{ 
+void merrli_create_connection(char* html, char* css, char* js)
+{
     FILE *html_data;
-    html_data = fopen("../page/index.html", "r");
+    html_data = fopen(html, "r");   // ../page/index.html
     if (html_data == NULL) {
         perror("Error opening file index.html");
         exit(EXIT_FAILURE);
@@ -49,7 +49,7 @@ int main(void)
 
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(8001);
+    server_address.sin_port = htons(8002);
     server_address.sin_addr.s_addr = INADDR_ANY;
 
     bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address));
@@ -97,7 +97,7 @@ int main(void)
             continue;
         }
         if (strstr(request_buffer, "styles.css") != NULL) {
-            FILE *css_data = fopen("../page/styles.css", "r");
+            FILE *css_data = fopen(css, "r");  // ../page/styles.css
             if (css_data == NULL) { 
                 char error_response[] = "HTTP/1.1 404 Not Found\r\n\r\n";
                 sendall(client_socket, error_response, strlen(error_response));
@@ -124,7 +124,7 @@ int main(void)
             continue;
         }
         if (strstr(request_buffer, "script.js") != NULL) {
-            FILE *js_data = fopen("../page/script.js", "r");
+            FILE *js_data = fopen(js, "r");
             if (js_data == NULL) {
                 char error_response[] = "HTTP/1.1 404 Not Found\r\n\r\n";
                 sendall(client_socket, error_response, strlen(error_response));
@@ -158,6 +158,11 @@ int main(void)
 
     free(response_data);
     fclose(html_data);
+}
+
+int main(void) 
+{ 
+    merrli_create_connection("../page/index.html", "../page/styles.css", "../page/script.js");
 
     return 0;
 }
