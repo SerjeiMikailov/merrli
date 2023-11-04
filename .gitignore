@@ -3,11 +3,15 @@
 
 l
 
+*.db
+
 .vscode
 tcpclient
 tcpserver
 gg.txt
 http
+
+node_modules
 
 # Object files
 *.o

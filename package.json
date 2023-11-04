@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "sqlite3": "^5.1.6",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10"
+  }
+}
