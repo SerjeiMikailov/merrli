@@ -1,12 +1,14 @@
 # Merrli
 
-### Simple C backend framework to run websites
+### Simple C framework to run websites
 
 --> It supports:
 
 - HTML files
 - JS files
 - CSS files
+
+--> Also contain a custom SQLite database implementation.
 
 ### Custom Terminal
 
