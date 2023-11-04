@@ -2,7 +2,7 @@
 
 void run()
 {
-  system("sh r.sh");
+  system("cd .. && cd launcher && sh r.sh");
 }
 
 int main()
