@@ -25,7 +25,7 @@ int sendall(int socket, const char *buffer, int length) {
     return (n == -1) ? -1 : 0;
 }
 
-void merrli_create_connection(char* html, char* css, char* js)
+void merrli_create_connection(int port, char* html, char* css, char* js)
 {
     FILE *html_data;
     html_data = fopen(html, "r");   // ../page/index.html
@@ -49,7 +49,7 @@ void merrli_create_connection(char* html, char* css, char* js)
 
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(8002);
+    server_address.sin_port = htons(port);
     server_address.sin_addr.s_addr = INADDR_ANY;
 
     bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address));
@@ -162,7 +162,7 @@ void merrli_create_connection(char* html, char* css, char* js)
 
 int main(void) 
 { 
-    merrli_create_connection("../page/index.html", "../page/styles.css", "../page/script.js");
+    merrli_create_connection(8003, "../page/index.html", "../page/styles.css", "../page/script.js");
 
     return 0;
 }
