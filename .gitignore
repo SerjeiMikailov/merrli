@@ -3,6 +3,9 @@
 
 l
 
+db.js
+scripts.js
+
 *.db
 
 .vscode
